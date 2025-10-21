@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+.header{
+  @apply py-12;
+  .nav-wrap{
+    @apply flex items-center justify-between;
+
+    .link-side{
+      @apply flex items-center gap-4;
+
+      .nav-link{
+        @apply text-lg text-[#131313] font-normal py-2 px-4.5 border border-transparent rounded-lg transition-all;
+
+        &.active,
+        &:hover{
+          @apply font-semibold text-[#23BE0A] border-[#23BE0A];
+        }
+      }
+    }
+
+    .btn-side{
+      @apply flex items-center gap-4;
+    }
+  }
+}

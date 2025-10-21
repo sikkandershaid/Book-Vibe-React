@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+.books_section {
+  .title {
+    @apply text-4xl font-bold text-center mb-8;
+    font-family: "Playfair Display", serif;
+  }
+  .books-wrap {
+    @apply grid grid-cols-3 gap-6;
+    .book-card {
+      @apply p-6 rounded-2xl border border-[#DCDCDC] bg-[#FFFFFF] transition-all;
+
+      &:hover {
+        @apply bg-[#F4FCF3];
+      }
+      &:hover .tag {
+        @apply !bg-[#23BE0A] !text-[#FFFFFF];
+      }
+
+      .image-part {
+        @apply bg-[#F3F3F3] rounded-2xl p-6 flex items-center justify-center;
+
+        img {
+          @apply h-[166px];
+        }
+      }
+
+      .bottom-content {
+        @apply mt-6;
+
+        .tag-wrap {
+          @apply flex items-center gap-3;
+
+          .tag {
+            @apply py-[7px] px-4 rounded-4xl bg-[#F4FCF3] text-base text-[#23BE0A] transition-all;
+          }
+        }
+
+        .title {
+          @apply text-2xl font-bold my-4;
+          font-family: "Playfair Display", serif;
+        }
+
+        .auther,
+        .rate,
+        .catagory {
+          @apply text-base text-[#424242] font-medium;
+        }
+
+        .bottom-part {
+          @apply pt-5 mt-5 border-t-[1.5px] border-[#DCDCDC] border-dashed flex items-center justify-between;
+
+          .rate {
+            @apply flex items-center gap-2;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Book details */
+
+.book-details {
+  @apply grid grid-cols-12 gap-6;
+
+  .image-bg {
+    @apply bg-[#F3F3F3] rounded-2xl p-[74px];
+  }
+
+  .book-title {
+    @apply text-[40px] font-bold mb-4;
+    font-family: "Playfair Display", serif;
+  }
+
+  .author,
+  .catagory {
+    @apply text-xl text-[#424242] font-medium;
+  }
+
+  .catagory {
+    @apply py-4 border-y border-[#DCDCDC] my-6;
+  }
+
+  .review {
+    @apply text-base text-[#424242];
+
+    .start-text {
+      @apply text-black font-bold;
+    }
+  }
+
+  .tag-wrap {
+    @apply flex items-center gap-3 my-6 pb-6 border-[#DCDCDC] border-b;
+
+    .tag-title {
+      @apply text-black font-bold;
+    }
+
+    .tag {
+      @apply py-[7px] px-4 rounded-4xl bg-[#F4FCF3] text-base text-[#23BE0A] transition-all;
+    }
+  }
+
+  .some-details-wrap {
+    @apply flex gap-15;
+
+    .details-item {
+      @apply flex gap-3 flex-col;
+      .start-text {
+        @apply min-w-[138px] text-[#5A5A5A] text-base;
+      }
+      
+      .text {
+        @apply text-black text-base font-semibold;
+      }
+    }
+  }
+}

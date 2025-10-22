@@ -32,7 +32,7 @@ const TriangleBar = (props) => {
 
 const PagesToRead = () => {
   const loaderData = useLoaderData();
-  const myReadList = stroedBookList({ loderData: loaderData }); 
+  const myReadList = stroedBookList(loaderData); 
 
   return (
     <>

@@ -2,37 +2,37 @@ import React, { useEffect, useState } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import { useLoaderData } from 'react-router-dom';
-import { getStoredBook } from '../../utilits/addToDb';
 import Book from '../Books/Book';
 import ReadListDetails from './ReadlListDetails';
 import { FaChevronDown } from "react-icons/fa6";
 import { getWishListBook } from '../../utilits/addWishListDb';
 import { Helmet } from "@dr.pogodin/react-helmet";
 import PagesToRead from '../PagesToRead/PagesToRead';
+import { stroedBookList } from '../../utilits/storedBookList';
 
 
 
 const ReadList = () => {
-  const loderData = useLoaderData();
+  const loaderData = useLoaderData();
   const [sort, setSort] = useState("");
 
   // ReadList==
   const [readList, setReadList] = useState([]);
+
+
   useEffect(() => {
-    const stroedBookData = getStoredBook();
-    const convertedStroedBookData = stroedBookData.map(id => parseInt(id));
-    const myReadList = loderData.filter(book => convertedStroedBookData.includes(book.bookId));
+    const myReadList = stroedBookList(loaderData); 
     setReadList(myReadList)
-  }, [loderData]);
+  }, [loaderData]);
 
   // WishList==
   const [wiselist, setWishList] = useState([]);
   useEffect(() => {
     const wishListData = getWishListBook();
     const convertedWishListData = wishListData.map(id => parseInt(id));
-    const myWiseList = loderData.filter(book => convertedWishListData.includes(book.bookId));
+    const myWiseList = loaderData.filter(book => convertedWishListData.includes(book.bookId));
     setWishList(myWiseList)
-  }, [loderData])
+  }, [loaderData])
 
 
   const handleSort = (type) => {
